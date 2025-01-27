@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 8.0f;
     Rigidbody2D _rb;
+    float xInput;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +18,19 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("SPACE HELD");
-        }
-        float xInput = Input.GetAxisRaw("Horizontal");
-        Debug.Log(xInput);
-        
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    Debug.Log("SPACE HELD");
+        //}
+        xInput = Input.GetAxisRaw("Horizontal");
+       // Debug.Log(xInput);
+
+        //Other versions of GetComponent
+        //GetComponent("Rigidbody2D");
+       // GetComponent(typeof(Rigidbody2D));
+    }
+    private void FixedUpdate()
+    {
         //Get current velocity
         Vector2 v = _rb.velocity;
         //Change just the X
@@ -31,8 +38,6 @@ public class PlayerMovement : MonoBehaviour
         //Set velocity
         _rb.velocity = v;
 
-        //Other versions of GetComponent
-        //GetComponent("Rigidbody2D");
-       // GetComponent(typeof(Rigidbody2D));
+        //_rb.position += _rb.velocity * Time.fixedDeltaTime;
     }
 }
