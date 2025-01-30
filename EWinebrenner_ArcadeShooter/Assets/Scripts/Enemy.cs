@@ -15,6 +15,24 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);//Destroy self
             Destroy(collision.gameObject); //Destroy bullet object 
+
+            //Add score
+            //FindObjectOfType
+            //FindObjectOfType<GameManager>().score += 10;
+
+            ////Gameobject.find
+            //GameObject gmo = GameObject.Find("GameManager");
+            //if (gmo != null)
+            //{
+            //    GameManager gm = gmo.GetComponent<GameManager>();
+            //    if (gm != null)
+            //    {
+            //        gm.score += 10;
+            //    }
+            //}
+
+            GameManager.Score += 10;
+            //GameManager.Score = 0; 
         }
     }
 }
