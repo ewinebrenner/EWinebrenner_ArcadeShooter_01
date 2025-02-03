@@ -11,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hello world wwww");
-        Debug.LogWarning("WARNING");
-        Debug.LogError("ERROR");
+        //Debug.Log("Hello world wwww");
+        //Debug.LogWarning("WARNING");
+        //Debug.LogError("ERROR");
         _rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
