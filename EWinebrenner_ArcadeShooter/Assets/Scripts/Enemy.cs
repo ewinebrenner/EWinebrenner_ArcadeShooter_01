@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
             //}
 
             GameManager.Score += 10;
+            Debug.Log(GameManager.Score);
             //GameManager.Score = 0; 
         }
     }

@@ -5,11 +5,28 @@ using TMPro;
 
 public class HUD : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _scoreText;
-    
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private TextMeshProUGUI _scoreText;
+
+    private void OnEnable()
     {
-        _scoreText.text = "Score: " + GameManager.Score.ToString();
+        GameManager.ScoreChanged += GameManager_ScoreChanged;
+        GameManager.HealthChanged += GameManager_HealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.ScoreChanged -= GameManager_ScoreChanged;
+        GameManager.HealthChanged -= GameManager_HealthChanged;
+    }
+
+    private void GameManager_HealthChanged(float health, float prevHealth)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void GameManager_ScoreChanged(int score)
+    {
+        //Debug.Log("Score changed");
+        _scoreText.text = "Score: " + score.ToString();
     }
 }
